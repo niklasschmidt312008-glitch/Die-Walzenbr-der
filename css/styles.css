@@ -1,38 +1,62 @@
+/* Global styles for Die Walzenbrüder — Edler Look */
 :root{
-  --forest:#155f3b; /* dunkles Schützengrün */
-  --gold:#c9a34a;
-  --white:#ffffff;
+  --schuetzengruen: #083a36; /* deep schützengrün */
+  --gold: #c9a84b; /* gold accents */
+  --bg: #f9f7f4;
+  --muted: #6b6b6b;
 }
 
-.bg-forest { background-color: var(--forest) !important; }
-.text-forest { color: var(--forest) !important; }
-.btn-forest { background-color: var(--forest); border-color: rgba(0,0,0,0.1); }
-.logo { width:48px; height:48px; }
-.logo-large { max-width:240px; }
-.logo { filter: drop-shadow(0 1px 0 rgba(0,0,0,0.15)); }
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.6;color:var(--schuetzengruen);background:var(--bg);margin:0}
+.container{max-width:1100px;margin:0 auto;padding:1.25rem}
 
-body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+/* Header */
+.site-header{background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.65));backdrop-filter: blur(4px);border-bottom:1px solid rgba(8,58,54,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:inline-flex;align-items:center;text-decoration:none}
+.logo{height:56px}
+.main-nav a{margin-left:1rem;color:var(--schuetzengruen);text-decoration:none;font-weight:600}
 
-/* Team avatars (platzhalter) */
-.avatar-placeholder {
-  width:72px;
-  height:72px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:linear-gradient(180deg, #e9f2ec, #d8ede0);
-  color:var(--forest);
-  font-weight:700;
-  font-size:18px;
-  margin:0 auto;
-}
+/* Hero */
+.hero{position:relative;min-height:56vh;background-image:url('/assets/hero.jpg');background-size:cover;background-position:center center;display:flex;align-items:center;color:#fff}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,58,54,0.55), rgba(8,58,54,0.4));}
+.hero-content{position:relative;padding:4rem 1.25rem}
+.hero-title{font-family:Lora, serif;font-size:3rem;margin:0 0 .5rem;color:var(--gold);text-shadow:0 2px 12px rgba(0,0,0,0.35)}
+.hero-sub{font-size:1.125rem;max-width:60ch}
+.btn{display:inline-block;margin-top:1rem;padding:.75rem 1.25rem;background:var(--gold);color:var(--schuetzengruen);font-weight:700;text-decoration:none;border-radius:6px}
 
-/* Karten */
-.card, .team-card { border: none; }
+/* Pattern usage in white sections */
+.pattern-section{background-color:#fff;padding:2.5rem;border-radius:8px;margin-top:-3rem;box-shadow:0 8px 30px rgba(3,3,3,0.04);background-image:url('/assets/pattern.png');background-repeat:repeat;background-size:180px 180px;background-position:center;}
+.pattern-section .grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
 
-/* Responsive paddings */
-@media (max-width: 576px) {
-  .logo { width:40px; height:40px; }
-  .logo-large { max-width:180px; }
+/* Sections */
+.section-title{font-family:Lora, serif;color:var(--schuetzengruen);font-size:1.5rem}
+.lead-text{font-size:1.05rem;color:var(--muted)}
+
+/* Members grid */
+.members-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;list-style:none;padding:0;margin:0}
+.member-card{background:#fff;border-radius:10px;padding:1.25rem;text-align:center;border:1px solid rgba(8,58,54,0.06)}
+.member-photo{position:relative;height:160px;width:160px;margin:0 auto 1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(201,168,75,0.12)}
+.member-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.member-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(8,58,54,0.06), rgba(8,58,54,0.02));color:var(--schuetzengruen);font-weight:700;font-family:Lora, serif;font-size:1.25rem}
+
+/* Events */
+.events-list{list-style:none;padding:0;margin:0}
+.events-list li{background:#fff;padding:1rem;border-radius:8px;margin-bottom:.75rem;border-left:4px solid var(--gold)}
+
+/* Contact form */
+.contact-form{display:grid;gap:.5rem;max-width:640px}
+.contact-form input,.contact-form textarea{padding:.65rem;border:1px solid rgba(8,58,54,0.08);border-radius:6px;font-size:1rem}
+
+/* Footer */
+.site-footer{padding:2rem 0;background:transparent;margin-top:3rem}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.site-footer a{color:var(--schuetzengruen)}
+
+/* Responsive */
+@media (max-width:800px){
+  .header-inner{flex-direction:column;gap:.75rem}
+  .main-nav a{margin-left:.5rem}
+  .hero-title{font-size:2.25rem}
+  .pattern-section .grid{grid-template-columns:1fr}
 }
